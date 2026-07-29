@@ -1,15 +1,53 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.nio.file.Path;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Menu menu = new Menu();
+        boolean isRunning = true;
+        FileOperations fileOperations = new FileOperations();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        while(isRunning) {
+            menu.printMenu();
+            int userChoice = menu.readChoice();
+
+           switch(userChoice) {
+               case 1: {
+                   fileOperations.copyFile("folder","folder2");
+               }
+               break;
+               case 2: {
+                   System.out.println("TODO :");
+               }
+               break;
+               case 3: {
+                   System.out.println("TODO :");
+               }
+               break;
+               case 4: {
+                   System.out.println("TODO :");
+               }
+               break;
+               case 5: {
+                   System.out.println("TODO :");
+               }
+               break;
+               case 6: {
+                   System.out.println("TODO :");
+               }
+               break;
+               case 7: {
+                   System.out.println("TODO :");
+               }
+               break;
+               case 8: {
+                   System.out.println("Thanks for using JFileCommander.");
+                   isRunning = false;
+               }
+               break;
+               default: {
+                   System.out.println("We don't manage this option choice. Try again.");
+               }
+           }
         }
     }
 }
