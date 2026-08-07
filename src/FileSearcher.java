@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
@@ -23,8 +24,13 @@ public class FileSearcher {
 
         try (var paths = Files.walk(root)) {
             return paths
-                    .filter(path -> path.getFileName().toString().toLowerCase().contains(lowerCaseQuery))
+                    .filter(path -> {
+                        Path fileName = path.getFileName();
+                        return fileName != null && fileName.toString().toLowerCase().contains(lowerCaseQuery);
+                    })
                     .collect(Collectors.toList());
+        } catch (UncheckedIOException e) {
+            throw new IOException("Error while walking directory tree: " + e.getCause().getMessage(), e);
         }
     }
 }
