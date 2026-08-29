@@ -1,3 +1,9 @@
+package com.jfilecommander;
+
+import com.jfilecommander.operations.FileOperations;
+import com.jfilecommander.operations.FileSearcher;
+import com.jfilecommander.ui.Menu;
+
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.List;

@@ -1,3 +1,5 @@
+package com.jfilecommander.operations;
+
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.nio.file.Files;
@@ -6,7 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class FileSearcher {
-    static List<Path> searchByName(String rootDir, String query) throws IOException {
+    public static List<Path> searchByName(String rootDir, String query) throws IOException {
         if (rootDir.isBlank()) {
             throw new IllegalArgumentException("Root directory must not be empty.");
         }
