@@ -1,9 +1,11 @@
+package com.jfilecommander.ui;
+
 import java.util.Scanner;
 
 public class Menu {
     private final Scanner scanner = new Scanner(System.in);
 
-    void printMenu(){
+    public void printMenu(){
         System.out.println();
         System.out.println("----------------------------------------");
         System.out.println("  ------ JFileCommander ------  ");
@@ -17,12 +19,12 @@ public class Menu {
         System.out.println("8. Exit");
     }
 
-    String readText(String prompt){
+    public String readText(String prompt){
         System.out.print(prompt);
         return scanner.nextLine().trim();
     }
 
-    int readChoice(){
+    public int readChoice(){
         while(true) {
             System.out.print("Your choice : ");
             if(scanner.hasNextInt()) {
