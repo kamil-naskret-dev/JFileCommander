@@ -1,17 +1,20 @@
 package com.jfilecommander.command;
 
 import com.jfilecommander.operations.FileSearcher;
+import com.jfilecommander.ui.Console;
 import com.jfilecommander.ui.Menu;
 
 import java.io.IOException;
-import java.nio.file.Path;
-import java.util.List;
 
 public class SearchByNameCommand implements Command {
     private final Menu menu;
+    private final Console console;
+    private final FileSearcher fileSearcher;
 
-    public SearchByNameCommand(Menu menu) {
+    public SearchByNameCommand(Menu menu, Console console, FileSearcher fileSearcher) {
         this.menu = menu;
+        this.console = console;
+        this.fileSearcher = fileSearcher;
     }
 
     @Override
@@ -19,14 +22,9 @@ public class SearchByNameCommand implements Command {
         String rootDir = menu.readText("Enter directory to search in: ");
         String query = menu.readText("Enter name to search for: ");
         try {
-            List<Path> results = FileSearcher.searchByName(rootDir, query);
-            if (results.isEmpty()) {
-                System.out.println("No matches found.");
-            } else {
-                results.forEach(System.out::println);
-            }
+            console.printResults(fileSearcher.searchByName(rootDir, query));
         } catch (IOException | IllegalArgumentException e) {
-            System.out.println("Search failed: " + e.getMessage());
+            console.printError("Search failed: " + e.getMessage());
         }
     }
 }

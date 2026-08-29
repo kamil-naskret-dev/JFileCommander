@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class FileSearcher {
-    public static List<Path> searchByName(String rootDir, String query) throws IOException {
+    public List<Path> searchByName(String rootDir, String query) throws IOException {
         if (rootDir.isBlank()) {
             throw new IllegalArgumentException("Root directory must not be empty.");
         }

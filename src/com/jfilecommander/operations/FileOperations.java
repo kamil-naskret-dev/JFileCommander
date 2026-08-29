@@ -6,17 +6,17 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 
 public class FileOperations {
-    public static void copyFile(String sourcePath, String targetPath) throws IOException {
+    public void copyFile(String sourcePath, String targetPath) throws IOException {
         Path[] paths = validatePaths(sourcePath, targetPath);
         Files.copy(paths[0], paths[1], StandardCopyOption.REPLACE_EXISTING);
     }
 
-    public static void moveFile(String sourcePath, String targetPath) throws IOException {
+    public void moveFile(String sourcePath, String targetPath) throws IOException {
         Path[] paths = validatePaths(sourcePath, targetPath);
         Files.move(paths[0], paths[1], StandardCopyOption.REPLACE_EXISTING);
     }
 
-    public static void deleteFile(String path) throws IOException {
+    public void deleteFile(String path) throws IOException {
         Path target = resolvePath(path);
         requireRegularFile(target);
         Files.delete(target);
