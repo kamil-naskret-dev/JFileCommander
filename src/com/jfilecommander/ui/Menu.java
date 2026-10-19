@@ -16,7 +16,8 @@ public class Menu {
         System.out.println("5. Filter by extension");
         System.out.println("6. Folder size");
         System.out.println("7. Compress to ZIP");
-        System.out.println("8. Exit");
+        System.out.println("8. Decompress ZIP");
+        System.out.println("9. Exit");
     }
 
     public String readText(String prompt){
