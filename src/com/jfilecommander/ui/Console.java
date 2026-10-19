@@ -5,11 +5,11 @@ import java.util.List;
 
 public class Console {
     public void printSuccess(String message) {
-        System.out.println(message);
+        System.out.println("[OK] " + message);
     }
 
     public void printError(String message) {
-        System.out.println(message);
+        System.out.println("[ERROR] " + message);
     }
 
     public void printResults(List<Path> results) {
@@ -18,9 +18,5 @@ public class Console {
         } else {
             results.forEach(System.out::println);
         }
-    }
-
-    public void print(String message) {
-        System.out.println(message);
     }
 }
