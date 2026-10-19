@@ -5,6 +5,7 @@ import com.jfilecommander.operations.FileOperations;
 import com.jfilecommander.operations.FileSearcher;
 import com.jfilecommander.operations.FolderSizeCalculator;
 import com.jfilecommander.operations.ZipCompressor;
+import com.jfilecommander.operations.ZipDecompressor;
 import com.jfilecommander.ui.Console;
 import com.jfilecommander.ui.Menu;
 
@@ -15,7 +16,8 @@ public class Application {
     private final FileSearcher fileSearcher = new FileSearcher();
     private final FolderSizeCalculator folderSizeCalculator = new FolderSizeCalculator();
     private final ZipCompressor zipCompressor = new ZipCompressor();
-    private final CommandDispatcher dispatcher = new CommandDispatcher(menu, console, fileOperations, fileSearcher, folderSizeCalculator, zipCompressor, this::stop);
+    private final ZipDecompressor zipDecompressor = new ZipDecompressor();
+    private final CommandDispatcher dispatcher = new CommandDispatcher(menu, console, fileOperations, fileSearcher, folderSizeCalculator, zipCompressor, zipDecompressor, this::stop);
     private boolean isRunning = true;
 
     public void start() {
