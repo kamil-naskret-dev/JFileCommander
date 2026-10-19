@@ -13,7 +13,7 @@ public class ExitCommand implements Command {
 
     @Override
     public void execute() {
-        console.print("Thanks for using JFileCommander.");
+        console.printSuccess("Thanks for using JFileCommander.");
         onExit.run();
     }
 }
