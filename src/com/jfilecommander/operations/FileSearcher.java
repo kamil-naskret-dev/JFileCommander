@@ -35,4 +35,30 @@ public class FileSearcher {
             throw new IOException("Error while walking directory tree: " + e.getCause().getMessage(), e);
         }
     }
+
+    public List<Path> filterByExtension(String rootDir, String extension) throws IOException {
+        if (rootDir.isBlank()) {
+            throw new IllegalArgumentException("Root directory must not be empty.");
+        }
+        if (extension.isBlank()) {
+            throw new IllegalArgumentException("Extension must not be empty.");
+        }
+
+        Path root = Path.of(rootDir).toAbsolutePath().normalize();
+
+        if (!Files.isDirectory(root)) {
+            throw new IOException("Not a directory: " + root);
+        }
+
+        String normalizedExtension = extension.startsWith(".") ? extension.toLowerCase() : "." + extension.toLowerCase();
+
+        try (var paths = Files.walk(root)) {
+            return paths
+                    .filter(Files::isRegularFile)
+                    .filter(path -> path.getFileName().toString().toLowerCase().endsWith(normalizedExtension))
+                    .collect(Collectors.toList());
+        } catch (UncheckedIOException e) {
+            throw new IOException("Error while walking directory tree: " + e.getCause().getMessage(), e);
+        }
+    }
 }
