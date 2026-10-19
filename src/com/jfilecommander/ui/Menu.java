@@ -13,7 +13,7 @@ public class Menu {
         System.out.println("2. Move file");
         System.out.println("3. Delete file");
         System.out.println("4. Search by name");
-        System.out.println("5. Todo:");
+        System.out.println("5. Filter by extension");
         System.out.println("6. Todo:");
         System.out.println("7. Todo:");
         System.out.println("8. Exit");

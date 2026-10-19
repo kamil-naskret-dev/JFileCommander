@@ -18,6 +18,7 @@ public class CommandDispatcher {
         commands.put(2, new MoveFileCommand(menu, console, fileOperations));
         commands.put(3, new DeleteFileCommand(menu, console, fileOperations));
         commands.put(4, new SearchByNameCommand(menu, console, fileSearcher));
+        commands.put(5, new FilterByExtensionCommand(menu, console, fileSearcher));
         commands.put(8, new ExitCommand(console, onExit));
     }
 
