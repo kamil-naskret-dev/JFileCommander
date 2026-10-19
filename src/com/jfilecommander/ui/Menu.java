@@ -15,7 +15,7 @@ public class Menu {
         System.out.println("4. Search by name");
         System.out.println("5. Filter by extension");
         System.out.println("6. Folder size");
-        System.out.println("7. Todo:");
+        System.out.println("7. Compress to ZIP");
         System.out.println("8. Exit");
     }
 
